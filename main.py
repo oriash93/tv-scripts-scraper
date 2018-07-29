@@ -1,6 +1,6 @@
 import scraper.scraper_requests as scraper_requests
-import utils.scraper_utils as scraper_utils
-import utils.strings as strings
+import utilities.scraper_utils as utils
+import utilities.strings as strings
 import argparse
 import os
 import glob
@@ -31,7 +31,7 @@ def clean(show_name):
 def main():
     args = parse_arguments()
 
-    show_name = scraper_utils.parse_show_name(args.show_name)
+    show_name = utils.parse_show_name(args.show_name)
     if args.clean:
         prompt = input(strings.clean_message.format(show_name))
         if prompt.upper() == 'Y':

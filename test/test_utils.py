@@ -1,5 +1,5 @@
 import unittest
-import utils.scraper_utils as utils
+import utilities.scraper_utils as utils
 
 
 class ScraperUtilsTests(unittest.TestCase):

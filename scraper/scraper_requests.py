@@ -1,4 +1,4 @@
-import utils.scraper_utils as utils
+import utilities.scraper_utils as utils
 import requests
 import sys
 from bs4 import BeautifulSoup
