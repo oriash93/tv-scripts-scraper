@@ -4,18 +4,18 @@ import utilities.scraper_utils as utils
 
 class ScraperUtilsTests(unittest.TestCase):
     def test_parse_show_name_with_space(self):
-        expected = "the-blacklist"
-        value = utils.parse_show_name("The Blacklist")
+        expected = 'the-blacklist'
+        value = utils.parse_show_name('The Blacklist')
         self.assertEqual(value, expected)
 
     def test_parse_show_name_all_caps(self):
-        expected = "the-simpsons"
-        value = utils.parse_show_name("THE SIMPSONS")
+        expected = 'the-simpsons'
+        value = utils.parse_show_name('THE SIMPSONS')
         self.assertEqual(value, expected)
 
     def test_parse_show_name_mixed(self):
-        expected = "family-guy"
-        value = utils.parse_show_name("fAmIly GuY")
+        expected = 'family-guy'
+        value = utils.parse_show_name('fAmIly GuY')
         self.assertEqual(value, expected)
 
     def test_get_show_base_url_formatted_with_view(self):

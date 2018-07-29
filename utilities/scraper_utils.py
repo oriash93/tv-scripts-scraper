@@ -11,8 +11,8 @@ def parse_show_name(show_name):
 def get_show_base_url_formatted(view=False):
     result = base_url
     if view:
-        result += "view_"
-    result += "episode_scripts.php" + "?" + show_query_format
+        result += 'view_'
+    result += 'episode_scripts.php' + '?' + show_query_format
     return result
 
 
@@ -22,9 +22,9 @@ def get_show_url(show, view=False):
 
 
 def get_season_url(show, season):
-    return get_show_url(show) + "&" + season_query_format.format(season)
+    return get_show_url(show) + '&' + season_query_format.format(season)
 
 
 def get_episode_url(show, season, episode):
-    episode_url = get_show_url(show, True) + "&" + episode_query_format
+    episode_url = get_show_url(show, True) + '&' + episode_query_format
     return episode_url.format(season, episode)

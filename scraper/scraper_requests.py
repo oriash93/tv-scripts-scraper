@@ -6,13 +6,13 @@ from bs4 import BeautifulSoup
 
 def get_number_of_seasons_for_show(show):
     r = requests.get(utils.get_show_url(show))
-    soup = BeautifulSoup(r.text, "lxml")
+    soup = BeautifulSoup(r.text, 'lxml')
     return len(soup.select('div.script-season-links > a'))
 
 
 def get_episodes_for_season_of_show(show, season):
     r = requests.get(utils.get_season_url(show, season))
-    soup = BeautifulSoup(r.text, "lxml")
+    soup = BeautifulSoup(r.text, 'lxml')
     return [link.href for link in soup.select('a.season-episode-title')]
 
 
@@ -30,14 +30,14 @@ def get_total_number_of_episodes(show):
 
 def get_script_for_episode_of_show(show, season, episode, output=None):
     r = requests.get(utils.get_episode_url(show, season, episode))
-    soup = BeautifulSoup(r.text, "lxml")
-    script_section = soup.find("div", {"class": "scrolling-script-container"})
+    soup = BeautifulSoup(r.text, 'lxml')
+    script_section = soup.find('div', {'class': 'scrolling-script-container'})
     try:
         script_text = script_section.text.strip()
     except Exception as ex:
         print(ex)
 
-    handle = open(output, 'w', encoding="utf-8") if output else sys.stdout
+    handle = open(output, 'w', encoding='utf-8') if output else sys.stdout
     try:
         handle.write(script_text)
     except Exception as ex:

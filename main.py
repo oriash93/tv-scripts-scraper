@@ -7,24 +7,24 @@ import glob
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description='Get TV Shows transcripts.')
+    parser = argparse.ArgumentParser(description="Get TV Shows transcripts.")
     parser.add_argument('show_name',
-                        metavar='Show name',
-                        help='The name of the show.')
-    parser.add_argument("--clean",
+                        metavar="Show name",
+                        help="The name of the show.")
+    parser.add_argument('--clean',
                         help="clean output files.",
                         action="store_true")
     return parser.parse_args()
 
 
 def get_episode_transcript(show_name, season, episode):
-    file_name = strings.file_format.format(show_name, season, episode)
+    file_name = strings.output_file_format.format(show_name, season, episode)
     scraper_requests.get_script_for_episode_of_show(
         show_name, season, episode, file_name)
 
 
 def clean(show_name):
-    for f in glob.glob("output/{0}*".format(show_name)):
+    for f in glob.glob(strings.clean_file_format.format(show_name)):
         os.remove(f)
 
 
@@ -55,5 +55,5 @@ def main():
         exit()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

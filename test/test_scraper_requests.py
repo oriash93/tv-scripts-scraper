@@ -6,7 +6,7 @@ class ScraperRequestsTests(unittest.TestCase):
     def test_get_number_of_seasons_for_show(self):
         expected = 2
         value = scraper_requests.get_number_of_seasons_for_show(
-            "Designated Survivor 2016")
+            'Designated Survivor 2016')
         self.assertEqual(value, expected)
 
     def test_get_number_of_episodes_for_season_of_show(self):
