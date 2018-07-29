@@ -32,13 +32,16 @@ def get_script_for_episode_of_show(show, season, episode, output=None):
     r = requests.get(utils.get_episode_url(show, season, episode))
     soup = BeautifulSoup(r.text, "lxml")
     script_section = soup.find("div", {"class": "scrolling-script-container"})
-    script_text = script_section.text.strip()
+    try:
+        script_text = script_section.text.strip()
+    except Exception as ex:
+        print(ex)
 
     handle = open(output, 'w', encoding="utf-8") if output else sys.stdout
     try:
         handle.write(script_text)
-    except Exception as identifier:
-        print(identifier)
+    except Exception as ex:
+        print(ex)
     finally:
         if handle is not sys.stdout:
             handle.close()
