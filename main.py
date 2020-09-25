@@ -7,7 +7,7 @@ import glob
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="Get TV Shows transcripts.")
+    parser = argparse.ArgumentParser(description="CLI NO LONGER WORKS!")
     parser.add_argument('show_name',
                         metavar="Show name",
                         help="The name of the show.")
